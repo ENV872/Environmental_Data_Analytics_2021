@@ -1,11 +1,16 @@
 ---
 title: "Assignment 2: Coding Basics"
-author: "Student Name"
+author: "Camille DeSisto"
 output: pdf_document
 geometry: margin=2.54cm
 editor_options: 
   chunk_output_type: console
 ---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 ## OVERVIEW
 
@@ -31,12 +36,20 @@ This exercise accompanies the lessons in Environmental Data Analytics on coding 
 4. Insert comments in your code to describe what you are doing.
 
 ```{r}
-#1. 
+#1. create a sequence from 1 to 100 by 4 and name the sequence "seq1"
+seq1 <- seq(1, 100, 4)
 
-#2. 
+#2. calculate the mean and median of the sequence 
 
-#3. 
+mean(seq1)
+median(seq1)
+#the mean and median of the sequence are both 49
 
+#3. use conditional statement to determine if the mean is greater than the median
+
+mean(seq1)>median(seq1)
+
+#this returns a "FALSE" because they are equal so the mean cannot be greater than the median
 ```
 
 ## Basics Day 2
@@ -50,21 +63,65 @@ This exercise accompanies the lessons in Environmental Data Analytics on coding 
 8. Label the columns of your data frame with informative titles.
 
 ```{r}
+#5
 
+# A) vector of student names. This is a character vector 
+names <- c("Martin", "Isabelle", "Peter", "Cooper")
+
+# B) vector of test scores out of 100. This is a numeric vector. Specifically, this double vector. 
+scores <- c(98, 43, 83, 94)
+
+#C) function for whether or not the studednts pass the test and then make vector from ouput (although I could have also written this out because in this case the math is easy to do in your head). This is a logical vecor. 
+
+#function 
+pass_or_fail <- function(x){
+  x>50
+}
+
+#vector from function output 
+pass <- pass_or_fail(scores)
+
+#6 (comments included in the code above)
+
+#7 create data from from vectors
+
+exam_results <- data.frame(names, scores, pass)
+
+# 8 create informative column names in data frame 
+library(dplyr)
+
+exam_results %>% rename(Name=names, Score=scores, Pass=pass)
 ```
 
 9. QUESTION: How is this data frame different from a matrix?
 
-> Answer: 
+> Answer: A matrix is a collection of data in a two-dimensional space that is made up of multiple vectors and has a rectangular shape with a fixed number of rows and columns. A data frame is a type of matrix that stores multiple data types and is made up of vectors that have equal lengths but it has a variable number of rows and columns. In a data frame, but not in a matrix, data can be multiple types (character, numeric, or factor). 
 
 10. Create a function with an if/else statement. Your function should determine whether a test score is a passing grade of 50 or above (TRUE or FALSE). You will need to choose either the `if` and `else` statements or the `ifelse` statement. Hint: Use `print`, not `return`. The name of your function should be informative.
 
 11. Apply your function to the vector with test scores that you created in number 5. 
 
 ```{r}
+# function to determine if the student passes or fails the test. This is a slightly modified version of the function I wrote earlier. It has the same output but uses and if/else statement. 
 
+pass_or_fail2 <- function(x){
+  ifelse(x>50, TRUE, FALSE)
+}
+
+#vector from function output 
+pass <- pass_or_fail2(scores)
+print(pass)
 ```
 
 12. QUESTION: Which option of `if` and `else` vs. `ifelse` worked? Why?
 
-> Answer: 
+> Answer: the "ifelse" statement worked best because I wanted to specify the outcome for a postive and a negative outcome. 
+
+
+
+
+# questions to ask at office hours 
+
+# why can't I pull from the upstream repository? 
+# clarify the difference between a matrix and a data frame 
+# the ifelse statement is the one that worked for me but I am not entirely sure why 
