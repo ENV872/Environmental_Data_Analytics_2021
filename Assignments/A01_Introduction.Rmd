@@ -1,6 +1,6 @@
 ---
 title: "Assignment 1: Introduction"
-author: "Student Name"
+author: "Camille DeSisto"
 output: pdf_document
 geometry: margin=2.54cm
 ---
@@ -22,21 +22,21 @@ The completed exercise is due on <>.
 
 1. What are your previous experiences with data analytics, R, and Git? Include both formal and informal training.
 
-> Answer: 
+> Answer: I have taken two courses in R. One course was an indtroductory statistics course that I took in undergrad and one was ENV771 with John Poulsen. I also have some informal R knowledge through research proejects that I have worked on. For example, I conducted my undergraduate thesis work using R and I am involved in a couple of projects now that require basic statistics in R. My data analytics training other than the two aforementioned courses is informal and based on trial and error, suggestions from mentors/ peers, and a lot og Googleing. I do not yet have any experience with Git. 
 
 2. Are there any components of the course about which you feel confident?
 
-> Answer: 
+> Answer: I understand the basics of R and R Studio so I am relatively confident with that. I am familiar with basic commands and statistical analyses. 
 
 3. Are there any components of the course about which you feel apprehensive?
 
-> Answer: 
+> Answer: Data processing and cleaning has always given me trouble. I know that I am very inefficient in my data management but I do not yet know how to improve. I am really looking forward to learning how to manage data in R in the hopes that it will save me a lot of time and frustration compared to my current excel-based methods. I am also very new to Git so I am apprehansive about that. 
 
 
 ## 2) GitHub
 
 Provide a link below to your forked course repository in GitHub. Make sure you have pulled all recent changes from the course repository  and that you have updated your course README file. 
 
-> Answer: 
+> Answer:https://github.com/camilledesisto/Environmental_Data_Analytics_2021
 
 

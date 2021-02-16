@@ -1,11 +1,16 @@
 ---
 title: "Assignment 2: Coding Basics"
-author: "Student Name"
+author: "Camille DeSisto"
 output: pdf_document
 geometry: margin=2.54cm
 editor_options: 
   chunk_output_type: console
 ---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 ## OVERVIEW
 
@@ -31,12 +36,21 @@ This exercise accompanies the lessons in Environmental Data Analytics on coding 
 4. Insert comments in your code to describe what you are doing.
 
 ```{r}
-#1. 
+#1. create a sequence from 1 to 100 by 4 and name the sequence "seq1"
+seq1 <- seq(1, 100, 4)
 
-#2. 
+#2. calculate the mean and median of the sequence 
 
-#3. 
+mean(seq1) #mean is 49
+median(seq1) #median is 49
 
+#the mean and median of the sequence are both 49
+
+#3. use conditional statement to determine if the mean is greater than the median
+
+mean(seq1)>median(seq1)
+
+#this returns a "FALSE" because they are equal so the mean cannot be greater than the median
 ```
 
 ## Basics Day 2
@@ -50,21 +64,76 @@ This exercise accompanies the lessons in Environmental Data Analytics on coding 
 8. Label the columns of your data frame with informative titles.
 
 ```{r}
+#5
 
+# A) vector of student names. This is a character vector 
+names <- c("Martin", "Isabelle", "Peter", "Cooper")
+
+# B) vector of test scores out of 100. This is a numeric vector. Specifically, this double vector. 
+scores <- c(98, 43, 83, 94)
+
+#C) function for whether or not the students pass the test and then make vector from output (although I could have also written this out because in this case the math is easy to do in your head). This is a logical vector. 
+
+#function 
+pass_or_fail <- function(x){
+  x>50
+}
+
+#vector from function output 
+pass <- pass_or_fail(scores)
+
+#6 (comments included in the code above)
+
+#7 create data from from vectors
+
+exam_results <- data.frame("Names"=names, "Scores"=scores, "Pass"=pass)
+
+# 8 create informative column names in data frame 
+#I did this already above in the "data.frame" function. 
+
+str(exam_results)
 ```
 
 9. QUESTION: How is this data frame different from a matrix?
 
-> Answer: 
+> Answer: A matrix is data in a two-dimensional space that is composed of multiple vectors and has a fixed number of rows and columns. Unlike matrices, data frames always have column names, and having columns is one reason why one would transform a vector into a data frame. A data frame is a type of matrix that stores multiple data types and is made up of vectors that have equal lengths. Data frames can have different numbers of rows and columns. In a data frame, but not in a matrix, data can be multiple types (character, numeric, or factor). Converting data to a data frame allows one more freedom to work with the dataset in future analyses. When you add a vector to a data frame, the restulting object will always be a data frame. There are also functions in R to transform vectors into data frames. 
 
 10. Create a function with an if/else statement. Your function should determine whether a test score is a passing grade of 50 or above (TRUE or FALSE). You will need to choose either the `if` and `else` statements or the `ifelse` statement. Hint: Use `print`, not `return`. The name of your function should be informative.
+
+```{r}
+# function to determine if the student passes or fails the test. This is a slightly modified version of the function I wrote earlier. It has the same output but uses and if/else statement. 
+
+pass_or_fail2 <- function(x){
+  ifelse(x>50, TRUE, FALSE)
+}
+
+#also try with an if/else statement
+pass_or_fail3 <- function(x){
+  if(x>50){
+    "TRUE"
+  } else {
+    "FALSE"
+  }
+}
+
+
+
+```
+
 
 11. Apply your function to the vector with test scores that you created in number 5. 
 
 ```{r}
 
+#vector from function output 
+pass <- pass_or_fail2(scores)
+
+#also try with the if/else statement function
+pass2 <- pass_or_fail3(scores)
+# this function does not work
+
 ```
 
 12. QUESTION: Which option of `if` and `else` vs. `ifelse` worked? Why?
 
-> Answer: 
+> Answer: the "ifelse" statement worked best because the condition will work for vectors that have a length of greater than 1, whereas the "if/else" statement returns an error then vectors are used and only provides an output for the first number in the vector. Thus, the "if/else" function works well for single values but does not work well for multiples values that are in a vector. 
